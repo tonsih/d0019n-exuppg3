@@ -431,9 +431,8 @@ public class Dungeon implements K
                 ((Printable) item).printObject();
             }
 
-            System.out.printf("Du tar upp %s\n", item.getName());
-            System.out.printf("\nBeskrivning:\n%s\n",
-                    item.getItemDesc().toLowerCase());
+            System.out.printf("Du tar upp %s\n", item.getName().toLowerCase());
+            System.out.printf("\nBeskrivning:\n%s\n", item.getItemDesc());
 
             if (item instanceof Consumable)
             {

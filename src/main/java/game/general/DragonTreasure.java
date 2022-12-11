@@ -194,12 +194,9 @@ public class DragonTreasure implements K
         if (dungeon.getGameWon()) PrintCollection.printWinASCII();
         else PrintCollection.printLoseASCII();
 
-        TimeManipulator.wait(1000);
-
         System.out.println(
                 "\n" + (dungeon.getGameWon() ? WIN_MSG : LOSE_MSG) + "\n");
 
-        TimeManipulator.wait(500);
 
         PrintCollection.printLines(33);
         System.out.println("Slutstatistik");
