@@ -1,8 +1,6 @@
 package game.items;
 
 import game.entities.Entity;
-import game.entities.Player;
-import game.items.Key;
 
 import java.util.ArrayList;
 import java.util.List;

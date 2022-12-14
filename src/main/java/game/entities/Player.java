@@ -27,7 +27,12 @@ public class Player extends Entity implements K
      */
     public Player(String name)
     {
-        super(name, K.INITIAL_PLAYER_HP, K.INITIAL_PLAYER_DMG, true, true);
+        super(name,
+                K.PLAYER_DESC,
+                K.INITIAL_PLAYER_HP,
+                K.INITIAL_PLAYER_DMG,
+                true,
+                true);
         this.treasures = new ArrayList<>();
         this.totalMonstersKilled = 0;
     }
@@ -44,9 +49,9 @@ public class Player extends Entity implements K
      *
      * @param title The title printed out on the title row in the box.
      * @param treasuresIncluded Option to also print player's treasures,
-     *                           their values and the total value inside the
-     *                           printed box. {@code true} to print the
-     *                           treasures {@code false} to not do that.
+     *         their values and the total value inside the printed box.
+     *         {@code true} to print the treasures {@code false} to not do
+     *         that.
      */
     public void printPlayerInfo(String title, boolean treasuresIncluded)
     {
@@ -154,7 +159,8 @@ public class Player extends Entity implements K
     }
 
     /**
-     * @param treasure Treasure to be added to the player's treasure array.
+     * @param treasure Treasure to be added to the player's treasure
+     *         array.
      */
     public void addTreasure(Treasure treasure)
     {
@@ -167,5 +173,9 @@ public class Player extends Entity implements K
     public void addMonsterKilled()
     {
         this.totalMonstersKilled++;
+    }
+
+    @Override public void printObject()
+    {
     }
 }

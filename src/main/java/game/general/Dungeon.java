@@ -125,10 +125,10 @@ public class Dungeon implements K
             else if (printRoomDescEnabled) this.currentRoom.printRoomDesc();
 
             /*
-             * Assign printRoomDescEnabled to "false" in the beginning of every
+             * Assign printRoomDescEnabled to true in the beginning of every
              * iteration of whileLoop.
              */
-            printRoomDescEnabled = false;
+            printRoomDescEnabled = true;
 
             // Prints an empty line for aesthetic purposes.
             System.out.println();
@@ -156,11 +156,7 @@ public class Dungeon implements K
             this.visualEffectManager.clearConsole();
             PrintCollection.printLinesWithPlusCorners();
 
-            if (ansStr.isBlank())
-            {
-                printRoomDescEnabled = true;
-                continue;
-            }
+            if (ansStr.isBlank()) continue;
 
             char ansChar = ansStr.charAt(0);
             this.player.useConsumablesWithCommand(ansChar);
@@ -177,16 +173,13 @@ public class Dungeon implements K
                         if (this.currentRoom.getItems().size() > 0 ||
                                 this.currentRoom.getKeyring().size() > 0)
                         {
+                            printRoomDescEnabled = false;
                             this.processPickedUpItems();
                             continue;
                         }
                 }
             }
-            else
-            {
-                printRoomDescEnabled = true;
-                continue;
-            }
+            else continue;
 
             /*
              * Checks if the entered value is a direction before the loop below
@@ -195,11 +188,8 @@ public class Dungeon implements K
              * corresponds with the door position, if the inputted value is not
              * a direction.
              */
-            if (!ValueManager.charIsDirection(ansChar))
-            {
-                printRoomDescEnabled = true;
-                continue;
-            }
+            if (!ValueManager.charIsDirection(ansChar)) continue;
+
 
             // Loops through all the available doors in the current room.
             for (Door currentDoor : this.currentRoom.getDoors())
@@ -233,13 +223,13 @@ public class Dungeon implements K
                          * Decide to show the room description of a new room.
                          * When the player has moved.
                          */
-                        printRoomDescEnabled = true;
-
                         break;
 
                     // If the door is locked and the player has no key.
                     } else
                     {
+                        printRoomDescEnabled = false;
+
                         if (currentDoor.getPointsToRoom().hasTreasure())
                         {
                             PrintCollection.printTreasureChest();

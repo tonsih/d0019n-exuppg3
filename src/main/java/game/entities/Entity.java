@@ -1,6 +1,7 @@
 package game.entities;
 
 import game.general.Room;
+import game.interfaces.Printable;
 import game.items.Item;
 import game.items.Key;
 import game.items.Keyring;
@@ -12,12 +13,17 @@ import java.util.ArrayList;
  * Represents an entity in the game with various attributes expected to be
  * inherited by non-abstract classes.
  */
-public abstract class Entity
+public abstract class Entity implements Printable
 {
     /**
      * Name of the entity.
      */
     protected final String name;
+
+    /**
+     * Description of the entity.
+     */
+    protected final String desc;
 
     /**
      * The entity's health in points.
@@ -51,6 +57,7 @@ public abstract class Entity
 
     /**
      * @param name Name of the entity.
+     * @param desc Description of the entity.
      * @param healthPoints The entity's health-points in natural
      *         numbers.
      * @param maxDamage Maximal damage output of the entity.
@@ -61,12 +68,14 @@ public abstract class Entity
      *                                  or max. damage.
      */
     public Entity(String name,
+                  String desc,
                   int healthPoints,
                   int maxDamage,
                   boolean ownsConsumables,
                   boolean ownsKeyring) throws IllegalArgumentException
     {
         this.name = name;
+        this.desc = desc;
 
         if (healthPoints <= 0) throw new IllegalArgumentException(
                 "The entity must have more than zero health-points");
@@ -83,10 +92,10 @@ public abstract class Entity
         else this.keyring = null;
     }
 
-    public Entity(String name, int healthPoints, int maxDamage)
+    public Entity(String name, String desc, int healthPoints, int maxDamage)
             throws IllegalArgumentException
     {
-        this(name, healthPoints, maxDamage, false, false);
+        this(name, desc, healthPoints, maxDamage, false, false);
     }
 
     /**
@@ -132,6 +141,14 @@ public abstract class Entity
     public String getName()
     {
         return this.name;
+    }
+
+    /**
+     * @return Description of the entity.
+     */
+    public String getDesc()
+    {
+        return this.desc;
     }
 
     /**
@@ -209,7 +226,7 @@ public abstract class Entity
 
     /**
      * @param consumable Consumable to be added to entity's list of
-     *                    consumables.
+     *         consumables.
      */
     public void addConsumable(Consumable consumable)
     {

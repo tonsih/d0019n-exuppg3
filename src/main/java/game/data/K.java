@@ -47,6 +47,7 @@ public interface K
     String LOSE_MSG = "Du förlorar och borde skämmas";
 
 
+    String PLAYER_DESC = "Spelare";
     int INITIAL_PLAYER_HP = 10;
     int INITIAL_PLAYER_DMG = 2;
     int POTION_HP = 6;
