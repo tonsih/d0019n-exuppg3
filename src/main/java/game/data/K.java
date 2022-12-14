@@ -52,6 +52,8 @@ public interface K
     int INITIAL_PLAYER_DMG = 2;
     int POTION_HP = 6;
     int GRENADE_DMG = 8;
+    String SWORD_NAME = "Ett svärd";
+    String SWORD_DESC = "Ett coolt svärd";
     int SWORD_DMG = 6;
 
     int CREATURE_HP = 8;
