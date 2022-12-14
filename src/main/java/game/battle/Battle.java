@@ -67,10 +67,9 @@ public class Battle
             this.doAttack(this.monster, this.player);
             TimeManipulator.wait(1000);
 
-            if (player.getHealthPoints() <= 0)
+            if (!this.player.isAlive())
             {
                 this.printWinsMessage(this.monster, this.player);
-                player.setAlive(false);
                 return false;
             }
 
@@ -80,7 +79,7 @@ public class Battle
                 return false;
             }
 
-            if (monster.getHealthPoints() <= 0)
+            if (!this.monster.isAlive())
             {
                 this.printWinsMessage(this.player, this.monster);
                 player.addMonsterKilled();

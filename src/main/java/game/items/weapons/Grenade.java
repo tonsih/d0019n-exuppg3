@@ -28,11 +28,10 @@ public class Grenade extends Weapon implements K, Printable
     public Grenade()
     {
         this("En granat",
-                String.format("En explosiv som gör %d DMG", BOMB_DMG),
+                String.format("En explosiv som gör %d DMG", GRENADE_DMG),
                 false,
                 Command.USE_GRENADE.commandValue,
-                true,
-                BOMB_DMG);
+                true, GRENADE_DMG);
     }
 
 

@@ -124,20 +124,20 @@ public class DragonTreasure implements K
          * -object.
          */
         this.roomArr[0] =
-                new Room(new Door[]{new Door(e), new Door(s)}, new Grenade());
+                new Room(new Door[]{new Door(E), new Door(S)}, new Grenade());
         this.roomArr[1] =
-                new Room(new Door[]{new Door(w)}, new Keyring(new Key(6)));
-        this.roomArr[2] = new Room(new Door[]{new Door(n), new Door(s),
-                new Door(e, true, true)});
-        this.roomArr[3] = new Room(new Door[]{new Door(w)});
-        this.roomArr[4] = new Room(new Door[]{new Door(n), new Door(w, true),
-                new Door(e, true)}, new HealthPotion());
-        this.roomArr[5] = new Room(new Door[]{new Door(e)},
+                new Room(new Door[]{new Door(W)}, new Keyring(new Key(6)));
+        this.roomArr[2] = new Room(new Door[]{new Door(N), new Door(S),
+                new Door(E, true, true)});
+        this.roomArr[3] = new Room(new Door[]{new Door(W)});
+        this.roomArr[4] = new Room(new Door[]{new Door(N), new Door(W, true),
+                new Door(E, true)}, new HealthPotion());
+        this.roomArr[5] = new Room(new Door[]{new Door(E)},
                 new Keyring(new Key(7)),
                 new SaltaPinnar(),
                 new Item[]{new Sword()},
                 new Monster());
-        this.roomArr[6] = new Room(new Door[]{new Door(w)},
+        this.roomArr[6] = new Room(new Door[]{new Door(W)},
                 new Keyring(new Key(4)),
                 new Kitten(),
                 new Dragon());
@@ -178,9 +178,7 @@ public class DragonTreasure implements K
          * player is currently positioned in..
          */
         for (Room room : roomArr)
-        {
             if (room.getDoors().length > 1) room.sortDoorsByDirection();
-        }
 
         /*
          * If the user chooses to exit when prompted, the setupGame()-method
@@ -214,8 +212,7 @@ public class DragonTreasure implements K
          * -instance as arguments is.
          */
         Dungeon dungeon = new Dungeon(player,
-                this.roomArr[0],
-                e,
+                this.roomArr[0], E,
                 this.scanner,
                 this.visualEffectManager);
 
@@ -319,17 +316,15 @@ public class DragonTreasure implements K
                         PrintCollection.printLinesWithPlusCorners(110);
 
                         /*
-                         * These two values which the setters affect are already
-                         * false when an instance of visualEffectManager is
-                         * initiated. They are set to false here anyway "just in
+                         * The value which the setter affects is already
+                         * false, when an instance of visualEffectManager is
+                         * initiated. It's set to false here anyway "just in
                          * case".
                          */
-                        this.visualEffectManager.setAnimation(false);
                         this.visualEffectManager.setClearConsole(false);
 
                         return true;
                     case TERMINAL_OPTION:
-                        this.visualEffectManager.setAnimation(true);
                         this.visualEffectManager.setClearConsole(true);
                         this.visualEffectManager.clearConsole();
                         return true;

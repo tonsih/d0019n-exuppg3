@@ -6,12 +6,11 @@ import java.util.Map;
 // Interface "K" -- contains constants with their values.
 public interface K
 {
+    String CONSOLE_MARKER = "> ";
+    int AMOUNT_OF_LINES = 99;
 
     //  Stores the value for amount of rooms
     int ROOM_AMOUNT = 7;
-
-    String CONSOLE_MARKER = "> ";
-
 
     //  roomDescArr-variable -- An array of descriptions for rooms.
     String[] roomDescArr = new String[]{
@@ -24,13 +23,13 @@ public interface K
             "Du hör ett ljud. Det är en äkta Fender Stratocaster med single " +
                     "coil pickups",
 
-            "Du kommer in i ett rum och framför dig ser du Rick Astley. Han " +
+            "Du står i ett kallt rum. Framför dig ser du Rick Astley. Han " +
                     "har gett up dig.",
 
-            "Du kommer in i ett rum med en LTU-professor som svarar på sina " +
+            "Du är in i ett rum med en LTU-professor som svarar på sina " +
                     "mejl. Du blir rädd.",
 
-            "Du kommer in i ett fuktigt rum med vatten sipprandes längs den " +
+            "Du är in i ett fuktigt rum med vatten sipprandes längs den " +
                     "västra väggen.",
 
             "Du ser en brinnande fackla i rummets ena hörn och känner en " +
@@ -48,38 +47,30 @@ public interface K
     String LOSE_MSG = "Du förlorar och borde skämmas";
 
 
-    //  Values for player
     int INITIAL_PLAYER_HP = 10;
     int INITIAL_PLAYER_DMG = 2;
-
-
-    //  Values for items
-    int SWORD_DMG = 6;
     int POTION_HP = 6;
+    int GRENADE_DMG = 8;
+    int SWORD_DMG = 6;
 
-    //  Values for creatures
     int CREATURE_HP = 8;
     int CREATURE_MAX_DMG = 2;
 
+    String DRAGON_NAME = "Drake";
+    String DRAGON_DESC = "Skrämmande drake";
     int DRAGON_HP = 15;
     int DRAGON_MAX_DMG = 3;
 
-    char n = 'n', s = 's', w = 'v', e = 'o';
-
-    String DIRECTION_ORDER = "" + n + e + s + w;
-
+    char N = 'n', E = 'o', S = 's', W = 'v';
+    String DIRECTION_ORDER = "" + N + E + S + W;
     LinkedHashMap<String, Character> DIRECTIONS = new LinkedHashMap<>() {{
-       put("NORR",     n);
-       put("ÖSTER",    e);
-       put("SÖDER",    s);
-       put("VÄSTER",   w);
+       put("NORR", N);
+       put("ÖSTER", E);
+       put("SÖDER", S);
+       put("VÄSTER", W);
     }};
 
     int KITTEN_VALUE = 500000;
-
-
-    int AMOUNT_OF_LINES = 99;
-    int BOMB_DMG = 8;
 
 
     String NAME_PROMPT_MSG =
@@ -91,21 +82,14 @@ public interface K
                     Command.EXIT_GAME.commandValue
             );
 
-
     String ESCAPE_OPTION_MSG =
             String.format(
                     "Avsluta spelet [%c]\n",
                 Command.EXIT_GAME.commandValue
             );
-
-
-
     String ENVIRONMENT_CHECK_MSG = String.format("Jag kör programmet via en IDE [%c]\n" +
                     "Jag kör programmet via en Unix terminal eller Windows CMD [%c]\n"
-                    , Command.IDE_OPTION.commandValue, Command.TERMINAL_OPTION.commandValue);
-
-
-    int ANIMATE_TEXT_SPEED = 33;
+            , Command.IDE_OPTION.commandValue, Command.TERMINAL_OPTION.commandValue);
 
     String CURRENCY = "Guld";
 
@@ -116,7 +100,7 @@ public interface K
             "HP",   "HP",
             "MAX_DMG", "Max DMG",
             "MONSTERS_KILLED", "Dödade monsters",
-            "VALUE", "Värde",
+            "VALUE", "värde",
             "TOTAL_VALUE", "Total värde",
             "TREASURES", "Skatter",
             "NO_TREASURES", "Inga skatter");

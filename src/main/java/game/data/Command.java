@@ -2,10 +2,10 @@ package game.data;
 
 public enum Command implements K
 {
-    NORTH(n),
-    SOUTH(s),
-    WEST(w),
-    EAST(e),
+    NORTH(N),
+    SOUTH(S),
+    WEST(W),
+    EAST(E),
     PICKUP_ITEM('p'),
     PICKUP_KEY('f'),
     CONSUME_HEALTH_POTION('e'),

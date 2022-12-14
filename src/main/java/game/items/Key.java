@@ -2,7 +2,6 @@ package game.items;
 
 import game.data.PrintCollection;
 import game.entities.Entity;
-import game.entities.Player;
 import game.interfaces.Printable;
 
 public class Key extends Item implements Printable

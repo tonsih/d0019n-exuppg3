@@ -98,9 +98,9 @@ public class Dungeon implements K
 
         /*
          * Stores a boolean value determining if the roomDescription should be
-         * printed out later or not.
+         * printed out during the next iteration, or not.
          */
-        boolean narrativeFlag = true;
+        boolean printRoomDescEnabled = true;
 
         whileLoop:
         while (true)
@@ -120,15 +120,15 @@ public class Dungeon implements K
 
             /*
              * Print the current room description if there's no treasure in
-             * the current room and narrativeFlag is true.
+             * the current room and printRoomDescEnabled is true.
              */
-            else if (narrativeFlag) this.currentRoom.printRoomDesc();
+            else if (printRoomDescEnabled) this.currentRoom.printRoomDesc();
 
             /*
-             * Assign narrativeFlag to "false" in the beginning of every
+             * Assign printRoomDescEnabled to "false" in the beginning of every
              * iteration of whileLoop.
              */
-            narrativeFlag = false;
+            printRoomDescEnabled = false;
 
             // Prints an empty line for aesthetic purposes.
             System.out.println();
@@ -156,26 +156,37 @@ public class Dungeon implements K
             this.visualEffectManager.clearConsole();
             PrintCollection.printLinesWithPlusCorners();
 
-            if (ansStr.isBlank()) continue;
+            if (ansStr.isBlank())
+            {
+                printRoomDescEnabled = true;
+                continue;
+            }
 
             char ansChar = ansStr.charAt(0);
             this.player.useConsumablesWithCommand(ansChar);
             Command commandValueOfAns =
                     ValueManager.getCommandValueWithChar(ansChar);
-            if (commandValueOfAns != null) switch (commandValueOfAns)
+            if (commandValueOfAns != null)
             {
-                case EXIT_GAME:
-                    this.visualEffectManager.clearConsole();
-                    break whileLoop;
-                case PICKUP_ITEM:
-                    if (this.currentRoom.getItems().size() > 0 ||
-                            this.currentRoom.getKeyring().size() > 0)
-                    {
-                        this.processPickedUpItems();
-                        continue;
-                    }
+                switch (commandValueOfAns)
+                {
+                    case EXIT_GAME:
+                        this.visualEffectManager.clearConsole();
+                        break whileLoop;
+                    case PICKUP_ITEM:
+                        if (this.currentRoom.getItems().size() > 0 ||
+                                this.currentRoom.getKeyring().size() > 0)
+                        {
+                            this.processPickedUpItems();
+                            continue;
+                        }
+                }
             }
-            else continue;
+            else
+            {
+                printRoomDescEnabled = true;
+                continue;
+            }
 
             /*
              * Checks if the entered value is a direction before the loop below
@@ -184,7 +195,11 @@ public class Dungeon implements K
              * corresponds with the door position, if the inputted value is not
              * a direction.
              */
-            if (!ValueManager.charIsDirection(ansChar)) continue;
+            if (!ValueManager.charIsDirection(ansChar))
+            {
+                printRoomDescEnabled = true;
+                continue;
+            }
 
             // Loops through all the available doors in the current room.
             for (Door currentDoor : this.currentRoom.getDoors())
@@ -218,7 +233,7 @@ public class Dungeon implements K
                          * Decide to show the room description of a new room.
                          * When the player has moved.
                          */
-                        narrativeFlag = true;
+                        printRoomDescEnabled = true;
 
                         break;
 

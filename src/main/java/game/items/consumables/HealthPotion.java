@@ -4,7 +4,6 @@ import game.data.Command;
 import game.data.K;
 import game.data.PrintCollection;
 import game.entities.Entity;
-import game.entities.Player;
 import game.interfaces.Printable;
 
 public class HealthPotion extends Consumable implements K, Printable
@@ -39,6 +38,7 @@ public class HealthPotion extends Consumable implements K, Printable
                 this.getHealingAmount(),
                 entity.getName(),
                 entity.getHealthPoints());
+        PrintCollection.printLinesWithPlusCorners();
     }
 
     @Override public void printObject()

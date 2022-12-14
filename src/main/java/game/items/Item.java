@@ -1,7 +1,6 @@
 package game.items;
 
 import game.entities.Entity;
-import game.entities.Player;
 
 public abstract class Item
 {
