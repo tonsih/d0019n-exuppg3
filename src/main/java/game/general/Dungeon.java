@@ -79,7 +79,8 @@ public class Dungeon implements K
     }
 
     /**
-     * @return "true" if gameWon is "true". Returns "false" otherwise.
+     * @return {@code true} if gameWon is {@code true}. Returns {@code false}
+     * otherwise.
      */
     public boolean getGameWon()
     {
@@ -121,7 +122,7 @@ public class Dungeon implements K
 
             /*
              * Print the current room description if there's no treasure in
-             * the current room and narrativeFlag is "true".
+             * the current room and narrativeFlag is true.
              */
             else if (narrativeFlag) this.currentRoom.printRoomDesc();
 
@@ -260,7 +261,8 @@ public class Dungeon implements K
      * A prompt which welcomes the player during the start of the game. Excepts
      * the user to exit a cave in a pre-determined direction.
      *
-     * @return True if the player enters the cave. False otherwise, if the
+     * @return {@code true} if the player enters the cave. {@code false}
+     *         otherwise, if the
      *         player chooses to exit the game.
      * @throws Exception If something goes wrong while clearing the console.
      */

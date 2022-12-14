@@ -73,11 +73,13 @@ public class DragonTreasure implements K
      * ending of the game.
      *
      * @throws Exception If Door-instances are initiated with an invalid
-     *                   position as an argument.
+     *                   position as an argument or if something goes wrong
+     *                   while the console is being cleared.
      */
     public void setupGame() throws Exception
     {
 
+        // @formatter:off
     /*
      *==========================================================================
      *                           START OF MAP LAYOUT
@@ -113,6 +115,7 @@ public class DragonTreasure implements K
      *                           END OF MAP LAYOUT
      *==========================================================================
      */
+    // @formatter:on
 
         /*
          * New rooms are added to roomsArr. Each room is specified separately
@@ -213,8 +216,8 @@ public class DragonTreasure implements K
         /*
          * Stores a reference to the created new instance of Dungeon with
          * player, a starting room (first one in the array in this case, though
-         * any room works), a scanner and a reference to the
-         * visualEffectManager-instance as arguments is.
+         * any room works), a scanner and a reference to the visualEffectManager
+         * -instance as arguments is.
          */
         Dungeon dungeon = new Dungeon(player,
                 this.roomArr[0],
@@ -292,9 +295,9 @@ public class DragonTreasure implements K
      * should be turned on or off, since console clearing doesn't necessarily
      * work when the program is run from an IDE.
      *
-     * @return Returns false if the user chooses to exit the game. Returns true
-     *         otherwise if the user chooses one of the two first provided
-     *         alternatives.
+     * @return Returns {@code false} if the user chooses to exit the game.
+     *         Returns {@code true} otherwise if the user chooses one of the two
+     *         first provided alternatives.
      * @throws Exception If something goes wrong with clearing the console.
      */
     private boolean environmentCheckPrompt() throws Exception
@@ -324,8 +327,8 @@ public class DragonTreasure implements K
                         /*
                          * These two values which the setters affect are already
                          * false when an instance of visualEffectManager is
-                         * initiated. They are set to "false" here anyway "just
-                         * in case".
+                         * initiated. They are set to false here anyway "just in
+                         * case".
                          */
                         this.visualEffectManager.setAnimation(false);
                         this.visualEffectManager.setClearConsole(false);

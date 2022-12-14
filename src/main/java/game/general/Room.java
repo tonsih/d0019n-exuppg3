@@ -141,7 +141,7 @@ public class Room implements K
      * @param scanner A scanner used for user input.
      * @param visualEffectManager Used for visual effects i.e. clearing
      *         the console.
-     * @return True if player wins, otherwise false.
+     * @return {@code true} if player wins, otherwise {@code false}.
      * @throws Exception If something goes wrong while clearing the console.
      */
     public boolean doBattle(Player player,
@@ -219,7 +219,8 @@ public class Room implements K
     }
 
     /**
-     * @return True if a treasure exists in the room, false otherwise.
+     * @return {@code true} if a treasure exists in the room, {@code false}
+     * otherwise.
      */
     public boolean hasTreasure()
     {
@@ -227,7 +228,8 @@ public class Room implements K
     }
 
     /**
-     * @return True if a monster exists in the room, false otherwise.
+     * @return {@code true} if a monster exists in the room, {@code false}
+     * otherwise.
      */
     public boolean hasMonster()
     {

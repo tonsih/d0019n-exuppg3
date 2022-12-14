@@ -19,12 +19,13 @@ public class Door
     private final char position;
 
     /**
-     * Stores the state of the door. True if locked, false otherwise.
+     * Stores the state of the door. {@code true} if locked, {@code false}
+     * otherwise.
      */
     private final boolean locked;
 
     /**
-     * True if the door leads to an exit. False otherwise.
+     * {@code true} if the door leads to an exit. {@code false} otherwise.
      */
     private final boolean exit;
 
@@ -39,9 +40,9 @@ public class Door
      * @param pos The position of the door inside a room.
      * @param locked If the door is either locked or not.
      * @param exit If the door leads to an exit or not.
-     * @throws Exception If the door has an invalid position.
+     * @throws IllegalArgumentException If the door has an invalid position.
      */
-    public Door(char pos, boolean locked, boolean exit) throws Exception
+    public Door(char pos, boolean locked, boolean exit) throws IllegalArgumentException
     {
         if (ValueManager.charIsDirection(pos)) this.position = pos;
         else throw new IllegalArgumentException(
@@ -52,12 +53,12 @@ public class Door
         this.exit = exit;
     }
 
-    public Door(char pos) throws Exception
+    public Door(char pos) throws IllegalArgumentException
     {
         this(pos, false, false);
     }
 
-    public Door(char pos, boolean locked) throws Exception
+    public Door(char pos, boolean locked) throws IllegalArgumentException
     {
         this(pos, locked, false);
     }
@@ -71,7 +72,7 @@ public class Door
     }
 
     /**
-     * @return "true" if door is locked, otherwise "false".
+     * @return {@code true} if door is locked, otherwise {@code false}.
      */
     public boolean isLocked()
     {
@@ -79,7 +80,7 @@ public class Door
     }
 
     /**
-     * @return "true" if door leads to an exit, otherwise "false".
+     * @return {@code true} if door leads to an exit, otherwise {@code false}.
      */
     public boolean isExit()
     {
