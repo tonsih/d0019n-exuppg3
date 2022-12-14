@@ -21,7 +21,7 @@ public abstract class Item
     protected final String itemDesc;
 
     /**
-     * {@code true} if the item has an instant effect on pickup. {@code false}
+     * {@code true} if the item has an instant effect on pickup, {@code false}
      * if not.
      */
     private final boolean instantlyAffectsOnPickup;

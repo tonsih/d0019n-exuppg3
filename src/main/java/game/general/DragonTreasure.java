@@ -322,7 +322,6 @@ public class DragonTreasure implements K
                          * case".
                          */
                         this.visualEffectManager.setClearConsole(false);
-
                         return true;
                     case TERMINAL_OPTION:
                         this.visualEffectManager.setClearConsole(true);

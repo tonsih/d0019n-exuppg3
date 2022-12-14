@@ -5,6 +5,12 @@ import game.data.PrintCollection;
 import game.entities.Entity;
 import game.interfaces.Printable;
 
+/**
+ * This class represents a sword, a weapon used by an entity.
+ *
+ * @author Toni Sihvola
+ * @author Ludwig Ahnqvist
+ */
 public class Sword extends Weapon implements K, Printable
 {
     private final int increaseDamage;
