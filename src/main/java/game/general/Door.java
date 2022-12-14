@@ -6,7 +6,7 @@ import game.data.ValueManager;
  * This class represents a door which holds attributes such as its position
  * (direction), if the door is locked or not, if the door leads to an exit.
  *
- * <p>A Door-instance can also be connected to a Room.
+ * <p>A {@code Door}-instance can also be connected to a {@code Room}.
  *
  * @author Toni Sihvola
  * @author Ludwig Ahnqvist
@@ -35,8 +35,6 @@ public class Door
     private Room pointsToRoom;
 
     /**
-     * Constructor for a Door-instance.
-     *
      * @param pos The position of the door inside a room.
      * @param locked If the door is either locked or not.
      * @param exit If the door leads to an exit or not.

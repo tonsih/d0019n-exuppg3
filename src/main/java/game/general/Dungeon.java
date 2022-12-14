@@ -37,14 +37,14 @@ public class Dungeon implements K
     private final char entrancePos;
 
     /**
-     * Stores a reference to a Scanner-instance. The purpose is to take and
-     * store data inputted by the user.
+     * Stores a reference to a {@code Scanner}-instance. The purpose is to take
+     * and store data inputted by the user.
      */
     private final Scanner scanner;
 
     /**
-     * Stores a reference to a VirtualEffectManager-instance. Used for visual
-     * effects (clearing the console between pre-determined stages)
+     * Stores a reference to a {@code VirtualEffectManager}-instance. Used for
+     * visual effects (clearing the console between pre-determined stages)
      */
     private final VisualEffectManager visualEffectManager;
 
@@ -54,8 +54,6 @@ public class Dungeon implements K
     private boolean gameWon;
 
     /**
-     * Constructor for a Dungeon-instance.
-     *
      * @param player The player-entity for the game.
      * @param startingRoom The room in which the player starts the
      *         game.
@@ -315,8 +313,8 @@ public class Dungeon implements K
     }
 
     /**
-     * Prints all the items in the current room (including Key-objects in the
-     * Keyring of the current room)
+     * Prints all the items in the current room (including {@code Key}-objects
+     * in the {@code Keyring} of the current room)
      */
     private void printItemsInRoom()
     {
@@ -349,7 +347,8 @@ public class Dungeon implements K
      * and information regarding the doors - if they are unlocked, locked, lead
      * to an exit or both.
      *
-     * @throws Exception If a Door-object with an invalid direction exists.
+     * @throws Exception If a {@code Door}-object with an invalid direction
+     *                   exists.
      */
     private void printAvailableDoors() throws Exception
     {
@@ -387,8 +386,9 @@ public class Dungeon implements K
     }
 
     /**
-     * Handles the processing of the items in the current room, including Key
-     * -objects in the room's keyring if the player has chosen to pick them up.
+     * Handles the processing of the items in the current room, including
+     * {@code Key}-objects in the room's keyring if the player has chosen to
+     * pick them up.
      *
      * @throws Exception If something goes wrong while clearing the console.
      */

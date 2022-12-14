@@ -62,8 +62,6 @@ public class Room implements K
     private Monster monster;
 
     /**
-     * Room's constructor.
-     *
      * @param roomDesc A room description.
      * @param doors Doors connected to the room.
      * @param keyring Keyring for the room.

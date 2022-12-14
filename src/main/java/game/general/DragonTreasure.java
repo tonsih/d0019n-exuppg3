@@ -21,8 +21,9 @@ import java.util.Scanner;
 /**
  * Sets up the game by creating rooms with different attributes such as doors,
  * items etc.; asks the user of their current environment (IDE or UNIX terminal
- * / Windows CMD) and prompts the user for a player name. Initiates a Dungeon
- * -instance which starts the game. Handles the ending of the game as well.
+ * / Windows CMD) and prompts the user for a player name. Initiates a
+ * {@code Dungeon}-instance which starts the game. Handles the ending of the
+ * game as well.
  *
  * @author Toni Sihvola
  * @author Ludwig Ahnqvist
@@ -30,12 +31,12 @@ import java.util.Scanner;
 public class DragonTreasure implements K
 {
     /**
-     * Represents an array containing objects of the type "Room".
+     * Represents an array containing objects of the type {@code Room}.
      */
     private final Room[] roomArr;
 
     /**
-     * An array of room descriptions.
+     * An array of {@code Room} descriptions.
      */
     private final String[] roomDescArr;
 
@@ -50,13 +51,6 @@ public class DragonTreasure implements K
      */
     private final Scanner scanner;
 
-    /**
-     * Constructor. Initializes roomArr with the pre-determined size;
-     * roomDescArr is assigned to an array consisting of room descriptions; a
-     * new instance of scanner is initiated with "System.in" given as an
-     * argument for preparation for reading user input; a new instance of
-     * VisualEffectManager is initiated.
-     */
     public DragonTreasure()
     {
         this.roomArr = new Room[ROOM_AMOUNT];
@@ -66,20 +60,20 @@ public class DragonTreasure implements K
     }
 
     /**
-     * Sets up the game by assigning roomArr with Room-objects. The Room-objects
-     * contain information about their attributes, such as which "Door"- and
-     * "Item"-objects are assigned for them. The method also takes care of
-     * starting a new game once one has been set up, and lastly handles the
-     * ending of the game.
+     * Sets up the game by assigning a {@code Room}-array with {@code Room}
+     * -objects. The {@code Room}-objects contain information about their
+     * attributes, such as which {@code Door}- and {@code Item}-objects are
+     * assigned for them. The method also takes care of starting a new game once
+     * one has been set up, and lastly handles the ending of the game.
      *
-     * @throws Exception If Door-instances are initiated with an invalid
-     *                   position as an argument or if something goes wrong
-     *                   while the console is being cleared.
+     * @throws Exception If {@code Door}-instances are initiated with an
+     *                   invalid position as an argument, or if something goes
+     *                   wrong while the console is being cleared.
      */
     public void setupGame() throws Exception
     {
 
-        // @formatter:off
+    // @formatter:off
     /*
      *==========================================================================
      *                           START OF MAP LAYOUT
@@ -260,12 +254,12 @@ public class DragonTreasure implements K
      * Prompts the user for a player name and provides them with an option to
      * quit the program.
      *
-     * @return Returns the name of the player inputted by the user, or null.
-     *         Trims the beginning and the end of the returned string from
-     *         spaces and replaces multiple spaces with just one from anywhere
-     *         besides the beginning or the end of the string. Returns null if
-     *         user decides to exit the program by providing the exit-command as
-     *         input.
+     * @return Returns the name of the player inputted by the user, or
+     *         {@code null}. Trims the beginning and the end of the returned
+     *         string from spaces and replaces multiple spaces with just one
+     *         from anywhere besides the beginning or the end of the string.
+     *         Returns null if user decides to exit the program by providing
+     *         the exit-command as input.
      * @throws Exception If something goes wrong with clearing the console.
      */
     private String startPrompt() throws Exception
@@ -347,9 +341,9 @@ public class DragonTreasure implements K
     }
 
     /**
-     * Assigns descriptions to the room-array.
+     * Assigns descriptions to the {@code Room}-array.
      *
-     * @param roomDescArr Descriptions assigned to the room-array.
+     * @param roomDescArr Descriptions assigned to the {@code Room}-array.
      */
     private void assignDescriptions(String[] roomDescArr)
     {
