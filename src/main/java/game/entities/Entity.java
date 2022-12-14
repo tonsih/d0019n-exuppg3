@@ -21,11 +21,6 @@ public abstract class Entity implements Printable
     protected final String name;
 
     /**
-     * Description of the entity.
-     */
-    protected final String desc;
-
-    /**
      * The entity's health in points.
      */
     protected int healthPoints;
@@ -36,9 +31,14 @@ public abstract class Entity implements Printable
     protected int maxDamage;
 
     /**
+     * Description of the entity.
+     */
+    private final String desc;
+
+    /**
      * {@code true} if the entity is alive. Otherwise {@code false}.
      */
-    protected boolean isAlive;
+    private boolean isAlive;
 
     /**
      * The items which the entity possesses.

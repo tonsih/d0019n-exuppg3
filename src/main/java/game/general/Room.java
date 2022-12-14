@@ -150,7 +150,7 @@ public class Room implements K
         boolean battleResult = new Battle(player,
                 this.monster,
                 scanner,
-                visualEffectManager).newBattle();
+                visualEffectManager).doBattle();
 
         if (battleResult)
         {

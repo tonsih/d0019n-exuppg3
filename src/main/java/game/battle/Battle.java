@@ -14,6 +14,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This class represents a battle, where a player battles against an entity.
+ *
+ * @author Toni Sihvola
+ * @author Ludwig Ahnqvist
+ */
 public class Battle
 {
     /**
@@ -66,7 +72,7 @@ public class Battle
      * @throws Exception If something goes wrong while the console is being
      *                   cleared.
      */
-    public boolean newBattle() throws Exception
+    public boolean doBattle() throws Exception
     {
         TimeManipulator.wait(500);
         System.out.printf("%s dyker upp\n", this.entity.getDesc());
@@ -84,14 +90,11 @@ public class Battle
             {
                 this.printWinsMessage(this.entity, this.player);
                 return false;
-            }
-
-            if (!this.battlePlayerMenu())
+            } else if (!this.battlePlayerMenu())
             {
                 this.visualEffectManager.clearConsole();
                 return false;
             }
-
             if (!this.entity.isAlive())
             {
                 this.printWinsMessage(this.player, this.entity);
@@ -231,13 +234,11 @@ public class Battle
     {
         ArrayList<Item> items = new ArrayList<>(player.getItems());
         items.addAll(player.getConsumables());
-
         ArrayList<Item> tempBattleInventory = new ArrayList<>();
         for (Item item : items)
         {
             if (item.getUsableDuringBattle()) tempBattleInventory.add(item);
         }
-
         return tempBattleInventory;
     }
 
@@ -272,7 +273,8 @@ public class Battle
     }
 
     /**
-     * Prints the option for the player to attack with the valid attack-command.
+     * Prints the option for the player to attack with the valid
+     * attack-command.
      */
     private void printAttackOption()
     {
