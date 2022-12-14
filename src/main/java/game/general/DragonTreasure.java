@@ -21,18 +21,22 @@ import java.util.Scanner;
 /**
  * Sets up the game by creating rooms with different attributes such as doors,
  * items etc.; asks the user of their current environment (IDE or UNIX terminal
- * / Windows CMD) and prompts the user for a player name. Initiates a
- * Dungeon-instance which starts the game. Handles the ending of the game.
+ * / Windows CMD) and prompts the user for a player name. Initiates a Dungeon
+ * -instance which starts the game. Handles the ending of the game as well.
  *
  * @author Toni Sihvola
  * @author Ludwig Ahnqvist
  */
 public class DragonTreasure implements K
 {
-    /** Represents an array containing objects of the type "Room". */
+    /**
+     * Represents an array containing objects of the type "Room".
+     */
     private final Room[] roomArr;
 
-    /** An array of room descriptions. */
+    /**
+     * An array of room descriptions.
+     */
     private final String[] roomDescArr;
 
     /**
@@ -41,7 +45,9 @@ public class DragonTreasure implements K
      */
     private final VisualEffectManager visualEffectManager;
 
-    /** A scanner which is used mainly in this project to take user input. */
+    /**
+     * A scanner which is used mainly in this project to take user input.
+     */
     private final Scanner scanner;
 
     /**
@@ -73,40 +79,40 @@ public class DragonTreasure implements K
     {
 
     /*
-    ============================================================================
-                               START OF MAP LAYOUT
-    ============================================================================
-                                :::::::::::::::::::
-      XX = EXIT                 ::               ::       :::::::::::::::::::::
-      && = LOCKED               ::    Room 1     ::       ::                 ::
-                                ::  roomsArr[0]  ...........    Room 2       ::
-                                ::               ...........   roomsArr[1]   ::
-                                :: (start room)  ::       ::                 ::
-                                :: (weapon)      ::       :: (key to Room 6) ::
-                                ::               ::       ::                 ::
-                                ::::::::  :::::::::       :::::::::::::::::::::
-                                       :  :
-                               ::::::::   ::::::::::        ::::::::::::::::::
-                               ::                 ::        ::              ::
-                               ::    Room 3       ..........&&    Room 4    ::
-                               ::   roomsArr[2]   ..........XX  roomsArr[3] ::
-                               ::                 ::        ::              ::
-                               :::::::::  ::::::::::        ::::::::::::::::::
-    :::::::::::::::::::::              :  :
-    ::                 ::       ::::::::  :::::::::::      :::::::::::::::::::::
-    ::    Room 6       ::       ::                 ::      ::                 ::
-    ::  roomsArr[5]    &&.........   Room 5        ..........     Room 7      ::
-    ::                 &&.........  roomsArr[4]    ..........   roomsArr[6]   ::
-    ::   (monster)     ::       ::                 ::      ::                 ::
-    ::   (treasure)    ::       :: (health potion) ::      ::   (dragon)      ::
-    ::   (weapon)      ::       ::                 ::      ::   (treasure)    ::
-    :: (key to Room 7) ::       :::::::::::::::::::::      :: (key to Room 4) ::
-    ::                 ::                                  ::                 ::
-    :::::::::::::::::::::                                  :::::::::::::::::::::
-    ============================================================================
-                               END OF MAP LAYOUT
-    ============================================================================
-    */
+     *==========================================================================
+     *                           START OF MAP LAYOUT
+     *==========================================================================
+     *                            :::::::::::::::::::
+     *    XX = EXIT               ::               ::     :::::::::::::::::::::
+     *    && = LOCKED             ::    Room 1     ::     ::                 ::
+     *                            ::  roomsArr[0]  .........    Room 2       ::
+     *                            ::               .........   roomsArr[1]   ::
+     *                            :: (start room)  ::     ::                 ::
+     *                            :: (weapon)      ::     :: (key to Room 6) ::
+     *                            ::               ::     ::                 ::
+     *                            ::::::::  :::::::::     :::::::::::::::::::::
+     *                                   :  :
+     *                           ::::::::   ::::::::::       ::::::::::::::::::
+     *                           ::                 ::       ::              ::
+     *                           ::    Room 3       &&.........    Room 4    ::
+     *                           ::   roomsArr[2]   XX.........  roomsArr[3] ::
+     *                           ::                 ::       ::              ::
+     *                           :::::::::  ::::::::::       ::::::::::::::::::
+     *  :::::::::::::::::::::            :  :
+     *  ::                 ::     ::::::::  :::::::::::   :::::::::::::::::::::
+     *  ::    Room 6       ::     ::                 ::   ::                 ::
+     *  ::  roomsArr[5]    .......&&   Room 5        &&.....     Room 7      ::
+     *  ::                 .......&&  roomsArr[4]    &&.....   roomsArr[6]   ::
+     *  ::   (monster)     ::     ::                 ::   ::                 ::
+     *  ::   (treasure)    ::     :: (health potion) ::   ::   (dragon)      ::
+     *  ::   (weapon)      ::     ::                 ::   ::   (treasure)    ::
+     *  :: (key to Room 7) ::     :::::::::::::::::::::   :: (key to Room 4) ::
+     *  ::                 ::                             ::                 ::
+     *  :::::::::::::::::::::                             :::::::::::::::::::::
+     *==========================================================================
+     *                           END OF MAP LAYOUT
+     *==========================================================================
+     */
 
         /*
          * New rooms are added to roomsArr. Each room is specified separately
@@ -139,14 +145,17 @@ public class DragonTreasure implements K
                 new Kitten(),
                 new Dragon());
 
-        // Scrambles the room description array (roomDescArr) and then assigns
-        // the descriptions to the rooms in roomArr.
+        /*
+         * Scrambles the room description array (roomDescArr) and then assigns
+         * the descriptions to the rooms in roomArr.
+         */
         this.assignDescriptions(ArrayManipulator.scrambleArray(this.roomDescArr));
 
         /*
          * After all the rooms are initiated with their Doors above, the
-         * doors have
-         * to be connected with each other. This occurs in the code below.
+         * doors have to be connected with each other. This occurs in the code
+         * below.
+         *
          * The Door instances have a method "setPointsToRoom" in which the door
          * will be pointed to another room. The map layout further above
          * demonstrates how the Doors inside each room is connected.
@@ -176,21 +185,29 @@ public class DragonTreasure implements K
             if (room.getDoors().length > 1) room.sortDoorsByDirection();
         }
 
-        // If the user chooses to exit when prompted, the setupGame()-method
-        // returns void.
+        /*
+         * If the user chooses to exit when prompted, the setupGame()-method
+         * returns void.
+         */
         if (!this.environmentCheckPrompt()) return;
 
-        // Stores the value returned by the startPrompt-method, as the name of
-        // the player.
+        /*
+         * Stores the value returned by the startPrompt-method, as the name of
+         * the player.
+         */
         String playerName = this.startPrompt();
 
-        // Returns void if playerName is null. The returned null value means
-        // that the user chose to quit the game (or possibly something else went
-        // wrong)
+        /*
+         * Returns void if playerName is null. The returned null value means
+         * that the user chose to quit the game (or possibly something else went
+         * wrong)
+         */
         if (playerName == null) return;
 
-        // A new instance of Player is initiated with playerName as an argument
-        // to specify the name of the player.
+        /*
+         * A new instance of Player is initiated with playerName as an argument
+         * to specify the name of the player.
+         */
         Player player = new Player(playerName);
 
         /*
@@ -251,7 +268,6 @@ public class DragonTreasure implements K
     private String startPrompt() throws Exception
     {
         String ans;
-
         do
         {
             PrintCollection.printDragonTreasureLogo();
@@ -335,11 +351,7 @@ public class DragonTreasure implements K
     private void assignDescriptions(String[] roomDescArr)
     {
         if (roomDescArr.length >= this.roomArr.length)
-        {
             for (int i = 0; i < this.roomArr.length; i++)
-            {
                 this.roomArr[i].setRoomDesc(roomDescArr[i]);
-            }
-        }
     }
 }

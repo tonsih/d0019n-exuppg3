@@ -21,19 +21,29 @@ import java.util.*;
  */
 public class Room implements K
 {
-    /** Amount of rooms created. Used to identify each room with a unique ID. */
+    /**
+     * Amount of rooms created. Used to identify each room with a unique ID.
+     */
     private static int roomCount = 0;
 
-    /** A unique ID for the room */
+    /**
+     * A unique ID for the room
+     */
     private final int roomID;
 
-    /** Stores a room description. */
+    /**
+     * Stores a room description.
+     */
     private String roomDesc;
 
-    /** Stores an array of doors. */
+    /**
+     * Stores an array of doors.
+     */
     private final Door[] doors;
 
-    /** A room has its own keyring which can contain zero to many keys. */
+    /**
+     * A room has its own keyring which can contain zero to many keys.
+     */
     private final Keyring keyring;
 
     /**
@@ -41,10 +51,14 @@ public class Room implements K
      */
     private Treasure treasure;
 
-    /** Stores the room's items. */
+    /**
+     * Stores the room's items.
+     */
     private ArrayList<Item> items;
 
-    /** Represents the monster in the room, if one exists. */
+    /**
+     * Represents the monster in the room, if one exists.
+     */
     private Monster monster;
 
     /**

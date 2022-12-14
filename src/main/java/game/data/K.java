@@ -1,5 +1,6 @@
 package game.data;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 // Interface "K" -- contains constants with their values.
@@ -67,9 +68,12 @@ public interface K
 
     String DIRECTION_ORDER = "" + n + e + s + w;
 
-    Map<String, Character> DIRECTIONS =
-            Map.of("NORR", n, "SÖDER", s, "VÄSTER", w, "ÖSTER", e);
-
+    LinkedHashMap<String, Character> DIRECTIONS = new LinkedHashMap<>() {{
+       put("NORR",     n);
+       put("ÖSTER",    e);
+       put("SÖDER",    s);
+       put("VÄSTER",   w);
+    }};
 
     int KITTEN_VALUE = 500000;
 

@@ -25,7 +25,9 @@ public class Dungeon implements K
      */
     private final Player player;
 
-    /** Represents the room in which the player currently resides. */
+    /**
+     * Represents the room in which the player currently resides.
+     */
     private Room currentRoom;
 
     /**
@@ -46,7 +48,9 @@ public class Dungeon implements K
      */
     private final VisualEffectManager visualEffectManager;
 
-    /** Stores the game result (game won/lost). */
+    /**
+     * Stores the game result (game won/lost).
+     */
     private boolean gameWon;
 
     /**
@@ -93,36 +97,46 @@ public class Dungeon implements K
         // Returns void if the player chose to quit the game.
         if (!this.welcomePrompt()) return;
 
-        // Stores a boolean value determining if the roomDescription should be
-        // printed out later or not.
+        /*
+         * Stores a boolean value determining if the roomDescription should be
+         * printed out later or not.
+         */
         boolean narrativeFlag = true;
 
         whileLoop:
         while (true)
         {
             if (this.currentRoom.hasMonster())
+
                 // Start a battle and return "void" if player loses the battle.
                 if (!this.currentRoom.doBattle(this.player,
                         this.scanner,
                         this.visualEffectManager)) return;
 
-            // Handle finding the treasure appropriately with the findTreasure-
-            // method, if the current room has a treasure inside it.
+            /*
+             * Handle finding the treasure appropriately with the findTreasure-
+             * method if the current room has a treasure inside of it.
+             */
             if (this.currentRoom.hasTreasure()) this.findTreasure();
 
-            // Print the current room description, if there's no treasure in the
-            // current room and narrativeFlag is "true".
+            /*
+             * Print the current room description if there's no treasure in
+             * the current room and narrativeFlag is "true".
+             */
             else if (narrativeFlag) this.currentRoom.printRoomDesc();
 
-            // Assign narrativeFlag to "false" in the beginning of every
-            // iteration of whileLoop.
+            /*
+             * Assign narrativeFlag to "false" in the beginning of every
+             * iteration of whileLoop.
+             */
             narrativeFlag = false;
 
             // Prints an empty line for aesthetic purposes.
             System.out.println();
 
             // Prints a box with player information, such as HP, Max. DMG etc.
-            this.player.printPlayerInfo(K.CONTAINER_LABELS.get("PLAYER_INFORMATION"));
+            this.player.printPlayerInfo(K.CONTAINER_LABELS.get(
+                    "PLAYER_INFORMATION"));
 
             // Prints out the ID of the current room.
             System.out.printf("\n(Du befinner dig i %s)\n",
@@ -173,17 +187,21 @@ public class Dungeon implements K
              */
             if (!ValueManager.charIsDirection(ansChar)) continue;
 
-//          Loops through all the available doors in the current room.
+            // Loops through all the available doors in the current room.
             for (Door currentDoor : this.currentRoom.getDoors())
             {
 
-//              Checks if user input corresponds with the location of a door
-//              in the current room
+                /*
+                 * Checks if user input corresponds with the location of a door
+                 * in the current room
+                 */
                 if (ansChar == currentDoor.getPosition())
                 {
 
-                    // If the door is not locked or the player has a key to the
-                    // room in which the door is pointing at.
+                    /*
+                     * If the door is not locked or the player has a key to the
+                     * room in which the door is pointing at.
+                     */
                     if (!currentDoor.isLocked() ||
                             this.player.hasKeyForRoom(currentDoor.getPointsToRoom()))
                     {
@@ -197,8 +215,10 @@ public class Dungeon implements K
                         // Move to another room.
                         this.move(currentDoor.getPointsToRoom());
 
-                        // Decide to show the room description of a new room.
-                        // When the player has moved.
+                        /*
+                         * Decide to show the room description of a new room.
+                         * When the player has moved.
+                         */
                         narrativeFlag = true;
 
                         break;
@@ -216,8 +236,9 @@ public class Dungeon implements K
                                                     .getTreasure()
                                                     .getLockedDesc()
                                                     .toLowerCase());
-                        } else System.out.println(
-                                "Du har ingen nyckel som passar.");
+                        } else
+                            System.out.println("Du har ingen nyckel som " +
+                                    "passar.");
                     }
                 }
             }
@@ -322,9 +343,9 @@ public class Dungeon implements K
     }
 
     /**
-     * Prints the directions in which the player can go in from the current
-     * room and information regarding the doors - if they are unlocked, locked,
-     * lead to an exit or both.
+     * Prints the directions in which the player can go in from the current room
+     * and information regarding the doors - if they are unlocked, locked, lead
+     * to an exit or both.
      *
      * @throws Exception If a Door-object with an invalid direction exists.
      */
@@ -364,8 +385,8 @@ public class Dungeon implements K
     }
 
     /**
-     * Handles the processing of the items, including Key-objects in the room's
-     * keyring in the current room if the player has chosen to pick them up.
+     * Handles the processing of the items in the current room, including Key
+     * -objects in the room's keyring if the player has chosen to pick them up.
      *
      * @throws Exception If something goes wrong while clearing the console.
      */
