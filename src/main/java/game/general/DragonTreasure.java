@@ -178,7 +178,9 @@ public class DragonTreasure implements K
          * player is currently positioned in..
          */
         for (Room room : roomArr)
+        {
             if (room.getDoors().length > 1) room.sortDoorsByDirection();
+        }
 
         /*
          * If the user chooses to exit when prompted, the setupGame()-method
@@ -296,7 +298,7 @@ public class DragonTreasure implements K
         while (true)
         {
             PrintCollection.printLinesWithPlusCorners();
-            System.out.println(K.ENVIRONMENT_CHECK_MSG);
+            System.out.println(ENVIRONMENT_CHECK_MSG);
             PrintCollection.printEscapeOption();
             PrintCollection.printConsoleMarker();
 
@@ -335,9 +337,9 @@ public class DragonTreasure implements K
     }
 
     /**
-     * Assigns descriptions to the {@code Room}-array.
+     * Assigns descriptions to the list of rooms.
      *
-     * @param roomDescArr Descriptions assigned to the {@code Room}-array.
+     * @param roomDescArr Descriptions assigned to the list of rooms.
      */
     private void assignDescriptions(String[] roomDescArr)
     {

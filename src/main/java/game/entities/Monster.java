@@ -24,7 +24,7 @@ public class Monster extends Entity implements K
 
     public Monster()
     {
-        this("Odjur", "En ful varelse", K.CREATURE_HP, K.CREATURE_MAX_DMG);
+        this("Odjur", "En ful varelse", K.MONSTER_HP, K.MONSTER_MAX_DMG);
     }
 
     /**

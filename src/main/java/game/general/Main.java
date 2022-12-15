@@ -23,5 +23,4 @@ public class Main
          */
         new DragonTreasure().setupGame();
     }
-
 }

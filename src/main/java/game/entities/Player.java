@@ -30,7 +30,7 @@ public class Player extends Entity implements K
         super(name,
                 K.PLAYER_DESC,
                 K.INITIAL_PLAYER_HP,
-                K.INITIAL_PLAYER_DMG,
+                K.INITIAL_PLAYER_MAX_DMG,
                 true,
                 true);
         this.treasures = new ArrayList<>();
@@ -109,7 +109,7 @@ public class Player extends Entity implements K
                         containerPipe,
                         treasure.getName(),
                         K.CONTAINER_LABELS.get("VALUE"),
-                        treasure.getGoldValue(),
+                        treasure.getValue(),
                         K.CURRENCY);
             }
             containerRows = tempContainers;
@@ -126,7 +126,7 @@ public class Player extends Entity implements K
         PrintCollection.printLinesWithPlusCorners(boxWidth - 1);
         int amountOfSpaces = boxWidth - containerRows[0].length();
         System.out.print(containerRows[0]);
-        PrintCollection.printAmountOfSpaces(amountOfSpaces);
+        PrintCollection.printSpaces(amountOfSpaces);
         System.out.println(containerPipe);
         PrintCollection.printLinesWithPlusCorners(boxWidth - 1);
 
@@ -134,7 +134,7 @@ public class Player extends Entity implements K
         {
             amountOfSpaces = boxWidth - containerRows[i].length();
             System.out.print(containerRows[i]);
-            PrintCollection.printAmountOfSpaces(amountOfSpaces);
+            PrintCollection.printSpaces(amountOfSpaces);
             System.out.println(containerPipe);
         }
         PrintCollection.printLinesWithPlusCorners(boxWidth - 1);
@@ -153,7 +153,7 @@ public class Player extends Entity implements K
         int totalValue = 0;
         for (Treasure treasure : this.treasures)
         {
-            totalValue += treasure.getGoldValue();
+            totalValue += treasure.getValue();
         }
         return totalValue;
     }

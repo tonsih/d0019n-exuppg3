@@ -312,14 +312,17 @@ public class Dungeon implements K
     private void findTreasure()
     {
         this.currentRoom.getTreasure().applyEffect(this.player);
-        System.out.printf("Värde: %d Guld\n",
-                this.currentRoom.getTreasure().getGoldValue());
+        System.out.printf("%s: %d %s\n",
+                CONTAINER_LABELS.get("VALUE"),
+                this.currentRoom.getTreasure().getValue(),
+                CURRENCY
+                );
         this.currentRoom.removeTreasure();
     }
 
     /**
-     * Prints all the items in the current room (including {@code Key}-objects
-     * in the {@code Keyring} of the current room)
+     * Prints all the items (including the keys in the room's keyring) of the
+     * current room.
      */
     private void printItemsInRoom()
     {
@@ -375,7 +378,9 @@ public class Dungeon implements K
                         doorPositionChar);
 
                 if (this.player.hasKeyForRoom(currentDoor.getPointsToRoom()))
+                {
                     System.out.print(" (Du har en nyckel till dörren!)");
+                }
             } else
             {
                 if (currentDoor.isExit()) System.out.printf(
@@ -400,8 +405,10 @@ public class Dungeon implements K
     private void processPickedUpItems() throws Exception
     {
         this.visualEffectManager.clearConsole();
-        PrintCollection.printLinesWithPlusCorners();
-
+        if (this.visualEffectManager.isClearConsoleEnabled())
+        {
+            PrintCollection.printLinesWithPlusCorners();
+        }
         ArrayList<Item> items = new ArrayList<>(this.currentRoom.getItems());
         items.addAll(this.currentRoom.getKeyring().getKeys());
         for (Item item : items)
@@ -414,10 +421,7 @@ public class Dungeon implements K
             if (!(item instanceof Consumable))
             {
                 this.player.addItem(item);
-
-                if (item.instantlyAffectsOnPickup())
-                    item.applyEffect(this.player);
-
+                if (item.instantlyAffectsOnPickup()) item.applyEffect(this.player);
             } else this.player.addConsumable((Consumable) item);
 
             PrintCollection.printLinesWithPlusCorners();

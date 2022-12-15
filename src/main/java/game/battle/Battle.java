@@ -217,7 +217,7 @@ public class Battle
                 winner.getName(),
                 loser.getName());
         System.out.print(winsString);
-        PrintCollection.printAmountOfSpaces(
+        PrintCollection.printSpaces(
                 K.AMOUNT_OF_LINES - winsString.length());
         System.out.println(" |");
         PrintCollection.printLinesWithPlusCorners();

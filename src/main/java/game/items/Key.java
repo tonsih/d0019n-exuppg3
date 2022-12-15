@@ -44,6 +44,14 @@ public class Key extends Item implements Printable
     }
 
     /**
+     * Prints an ASCII key.
+     */
+    @Override public void printObject()
+    {
+        PrintCollection.printKey();
+    }
+
+    /**
      * Gives the key to the provided entity.
      *
      * @param entity Entity on which to apply the item effect.
@@ -51,13 +59,5 @@ public class Key extends Item implements Printable
     @Override public void applyEffect(Entity entity)
     {
         entity.giveKey(this);
-    }
-
-    /**
-     * Prints an ASCII key.
-     */
-    @Override public void printObject()
-    {
-        PrintCollection.printKey();
     }
 }

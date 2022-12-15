@@ -42,5 +42,4 @@ public class VisualEffectManager implements K
     {
         return this.clearConsoleEnabled;
     }
-
 }
