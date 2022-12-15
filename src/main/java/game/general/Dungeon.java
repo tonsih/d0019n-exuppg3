@@ -148,7 +148,6 @@ public class Dungeon implements K
 
             System.out.println();
             PrintCollection.printEscapeOption();
-            System.out.println();
             PrintCollection.printConsoleMarker();
 
             String ansStr = scanner.nextLine().trim().toLowerCase();

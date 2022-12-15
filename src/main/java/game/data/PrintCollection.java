@@ -105,7 +105,6 @@ public class PrintCollection implements K
         "⠀⠀⠙⢿⣿⣿⣿⣷⣿⣿⣷⣤⣸⣏⣀⣴⢟⡞⠁\n"+
         "⠀⠀⠀⠀⠙⠿⣿⣶⣽⣿⣭⣍⣿⣿⣽⠗⠋\n"+
         "⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠁\n");
-
     }
 
     public static void printSword()
@@ -130,8 +129,6 @@ public class PrintCollection implements K
         "⠀⠀⠀⠀⠀⠀⠀⠀⠘⠟⠋⠁⠀⠀⠀⠹⣧⠔⢻⣄\n"+
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⢻⠆\n"+
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠿⠿⠛\n");
-
-
     }
 
     public static void printHealthPotion()
@@ -152,7 +149,6 @@ public class PrintCollection implements K
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣦⣄⠀⠈⠁⠀⣠⣴⠟⠋\n"+
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠷⣦⣴⠾⠋\n"+
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁\n");
-
     }
 
     public static void printKey()

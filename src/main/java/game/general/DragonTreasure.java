@@ -100,7 +100,7 @@ public class DragonTreasure implements K
      *  ::  roomsArr[5]    .......&&   Room 5        &&.....     Room 7      ::
      *  ::                 .......&&  roomsArr[4]    &&.....   roomsArr[6]   ::
      *  ::   (monster)     ::     ::                 ::   ::                 ::
-     *  ::   (treasure)    ::     :: (health potion) ::   ::   (dragon)      ::
+     *  ::   (treasure)    ::     :: (health potion) ::   ::   (monster)     ::
      *  ::   (weapon)      ::     ::                 ::   ::   (treasure)    ::
      *  :: (key to Room 7) ::     :::::::::::::::::::::   :: (key to Room 4) ::
      *  ::                 ::                             ::                 ::
@@ -214,9 +214,10 @@ public class DragonTreasure implements K
          * -instance as arguments is.
          */
         Dungeon dungeon = new Dungeon(player,
-                this.roomArr[0], E,
-                this.scanner,
-                this.visualEffectManager);
+                                      this.roomArr[0],
+                                      E,
+                                      this.scanner,
+                                      this.visualEffectManager);
 
         dungeon.playGame();
 
@@ -303,10 +304,7 @@ public class DragonTreasure implements K
             PrintCollection.printConsoleMarker();
 
             String ansString = this.scanner.nextLine().trim().toLowerCase();
-            if (ansString.isBlank())
-            {
-                continue;
-            }
+            if (ansString.isBlank()) continue;
 
             char ansChar = ansString.charAt(0);
             Command charCommand = ValueManager.getCommandValueWithChar(ansChar);
@@ -345,6 +343,8 @@ public class DragonTreasure implements K
     {
         if (roomDescArr.length >= this.roomArr.length)
             for (int i = 0; i < this.roomArr.length; i++)
+            {
                 this.roomArr[i].setRoomDesc(roomDescArr[i]);
+            }
     }
 }

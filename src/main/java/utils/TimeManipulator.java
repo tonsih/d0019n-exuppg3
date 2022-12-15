@@ -1,5 +1,8 @@
 package utils;
 
+/**
+ * This class contains class methods used to control time-related events.
+ */
 public class TimeManipulator
 {
     /**
@@ -10,6 +13,12 @@ public class TimeManipulator
     {
     }
 
+    /**
+     * Wait or delay the execution process by the provided amount of
+     * milliseconds.
+     *
+     * @param ms Time to wait in milliseconds.
+     */
     public static void wait(int ms)
     {
         try

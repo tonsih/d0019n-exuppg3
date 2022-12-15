@@ -19,7 +19,7 @@ public enum Command implements K
      */
     PICKUP_ITEM('p'),
     PICKUP_KEY('f'),
-    CONSUME_HEALTH_POTION('e'),
+    CONSUME_HEALTH_POTION('d'),
     ATTACK('a'),
     USE_GRENADE('g'),
     IDE_OPTION('1'),

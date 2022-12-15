@@ -124,7 +124,6 @@ public class Battle
             printAttackOption();
             System.out.println();
             PrintCollection.printEscapeOption();
-            System.out.println();
 
             PrintCollection.printConsoleMarker();
             String ansStr = this.scanner.nextLine();
@@ -280,5 +279,4 @@ public class Battle
     {
         System.out.printf("Attackera [%c]\n", Command.ATTACK.commandValue);
     }
-
 }
