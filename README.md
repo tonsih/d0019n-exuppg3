@@ -31,10 +31,11 @@ running environment in the beginning of the game. Choosing the IDE-alternative
 disables these visual effects in question.
 
 The results for running the game via a Windows Powershell/CMD can provide
-varying results depending on the availibity for the tools to clear the tools,
-if the option for running the game via a Windows Powershell/CMD terminal is
-checked. If errors occurs in this case, choose the the option for running the
-game via an IDE environment for disabling the visual effects.
+varying results depending on the availability of the command utilities meant to
+clear the console, if the option for running the game via a Windows 
+Powershell/CMD terminal is chosen. If errors occurs in this case when the first
+option is chosen, choose the option for running the game via an IDE environment 
+for disabling the visual effects.
 
 
 ## Documentation
