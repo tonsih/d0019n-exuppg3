@@ -23,7 +23,7 @@ Another way to run the game is to run the pre-built jar-file located in
 Navigate to the jar-file location with the terminal (or provide the whole path
 to file) and run:
 
-java -jar d0019n-exuppg3.jar
+    java -jar d0019n-exuppg3.jar
 
 **Note**: Due to the inability for providing some visual effects for the
 terminal within an IDE environment, the game provides an option to decide the
